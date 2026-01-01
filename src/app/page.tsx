@@ -1,66 +1,49 @@
+import Link from "next/link";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { projects } from "@/content/projects";
+import ProjectCard from "@/components/ProjectCard";
 
-export default function Home() {
+export default function HomePage() {
+  const featured = projects.slice(0, 2);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <section className="heroRow">
+        <div>
+          <h1 className="h1">Hi, I'm Arjun Suryawanshi!</h1>
+          <p className="sub">
+            I study Computer Science and Biomedical Engineering at the University of Pennsylvania and am interested
+            in Software Engineering and Quantitative roles, particularly involving Machine Learning. I enjoy solving
+            hard problems and innovating new solutions, be it a custom computer vision model for classifying horse behavior
+            or improved vehicle simulation tools, and strive to find new challenges to tackle.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        
+        <div className="avatarWrap">
+          <div className="avatar">
             <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/me.jpg"
+              alt="Portrait of Your Name"
+              width={180}
+              height={180}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+        
+      </section>
+
+      <section style={{ marginTop: 18 }}>
+        <h2>Featured</h2>
+        <div className="grid">
+          {featured.map((p) => <ProjectCard key={p.title} p={p} />)}
+        </div>
+
+        <div className="btnRow" style={{ marginTop: 14 }}>
+          <Link className="button" href="/projects">See all projects →</Link>
+        </div>
+      </section>
+    </>
   );
 }
