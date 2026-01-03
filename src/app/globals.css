@@ -145,8 +145,62 @@ a:hover { text-decoration: underline; }
 
 .cardTitle {
   margin: 0 0 6px;
-  font-size: 18px;
+  font-size: 22px;
   letter-spacing: -0.2px;
+}
+
+/* Projects: 2-column card (text left, images right) */
+.projCard {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.03);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 820px) {
+  .projCard {
+    grid-template-columns: 1fr 1fr; /* left text, right images */
+    align-items: start;
+    gap: 18px;
+  }
+}
+
+.projList {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.projImages {
+  display: grid;
+  gap: 12px;
+}
+
+.projFigure {
+  margin: 0;
+}
+
+.projImgWrap {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.projImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.projCaption {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
 }
 
 .muted { color: var(--muted); }

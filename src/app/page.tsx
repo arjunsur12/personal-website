@@ -15,7 +15,7 @@ export default function HomePage() {
             I study Computer Science and Biomedical Engineering at the University of Pennsylvania and am interested
             in Software Engineering and Quantitative roles, particularly involving Machine Learning. I enjoy solving
             hard problems and innovating new solutions, be it a custom computer vision model for classifying horse behavior
-            or improved vehicle simulation tools, and strive to find new challenges to tackle.
+            or improved vehicle simulation tools, and strive to find such challenges to tackle.
           </p>
         </div>
         
@@ -34,10 +34,12 @@ export default function HomePage() {
         
       </section>
 
-      <section style={{ marginTop: 18 }}>
+      <section style={{ marginTop: 0 }}>
         <h2>Featured</h2>
-        <div className="grid">
-          {featured.map((p) => <ProjectCard key={p.title} p={p} />)}
+        <div style={{ display: "grid", gap: 14, marginTop: 6 }}>
+          {projects.map((p) => (
+            <ProjectCard key={p.slug} p={p} />
+          ))}
         </div>
 
         <div className="btnRow" style={{ marginTop: 14 }}>
