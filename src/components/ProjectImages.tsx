@@ -4,10 +4,12 @@ import type { ProjectImage } from "@/content/projects";
 export default function ProjectImages({ images }: { images: ProjectImage[] }) {
   if (!images?.length) return null;
 
+  const single = images.length === 1;
+
   return (
-    <div className="projImages">
+    <div className={`projImages ${single ? "singleImage" : ""}`}>
       {images.map((img, idx) => (
-        <figure key={`${img.src}-${idx}`} className="projFigure">
+        <figure key={idx} className="projFigure">
           <div className="projImgWrap">
             <NextImage
               src={img.src}
@@ -16,7 +18,6 @@ export default function ProjectImages({ images }: { images: ProjectImage[] }) {
               height={800}
               className="projImg"
               sizes="(max-width: 820px) 92vw, 420px"
-              quality={95}
               priority={idx === 0}
             />
           </div>

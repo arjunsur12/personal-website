@@ -8,7 +8,7 @@ export default function ProjectsPage() {
     <>
       <h1 className="h1" style={{ fontSize: 34 }}>Projects</h1>
       <p className="sub">
-        A few things I’ve built. Each includes scope, what I owned, and outcomes.
+        A few of my completed and ongoing projects!
       </p>
 
       <div style={{ display: "grid", gap: 14, marginTop: 14 }}>

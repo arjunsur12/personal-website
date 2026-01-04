@@ -37,11 +37,16 @@ export default function ProjectCard({ p }: { p: Project }) {
               Write-up →
             </a>
           )}
+          {p.links.devpost && (
+            <a className="button" href={p.links.devpost} target="_blank" rel="noreferrer">
+              Devpost →
+            </a>
+          )}
         </div>
       </div>
 
       {/* Right */}
-      <div className="projRight">
+      <div className={`projRight ${p.images?.length === 1 ? "projRightSingle" : ""}`}>
         <ProjectImages images={p.images} />
       </div>
     </div>

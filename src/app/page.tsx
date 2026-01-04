@@ -12,7 +12,7 @@ export default function HomePage() {
         <div>
           <h1 className="h1">Hi, I'm Arjun Suryawanshi!</h1>
           <p className="sub">
-            I study Computer Science and Biomedical Engineering at the University of Pennsylvania and am interested
+            I study CIS and Bioengineering at the University of Pennsylvania and am interested
             in Software Engineering and Quantitative roles, particularly involving Machine Learning. I enjoy solving
             hard problems and innovating new solutions, be it a custom computer vision model for classifying horse behavior
             or improved vehicle simulation tools, and strive to find such challenges to tackle.
@@ -37,9 +37,7 @@ export default function HomePage() {
       <section style={{ marginTop: 0 }}>
         <h2>Featured</h2>
         <div style={{ display: "grid", gap: 14, marginTop: 6 }}>
-          {projects.map((p) => (
-            <ProjectCard key={p.slug} p={p} />
-          ))}
+          <ProjectCard key={featured[0].slug} p={featured[0]}/>
         </div>
 
         <div className="btnRow" style={{ marginTop: 14 }}>
