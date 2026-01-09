@@ -22,7 +22,7 @@ export default function ResumePage() {
       <div className="card" style={{ marginTop: 14 }}>
         <iframe
           src="/Arjun_Suryawanshi_Resume.pdf"
-          style={{ width: "100%", height: "100vh", border: "0", borderRadius: "14px" }}
+          style={{ width: "100%", height: "120vh", border: "0", borderRadius: "14px" }}
           title="Resume PDF"
         />
         <p className="muted" style={{ marginTop: 10 }}>
