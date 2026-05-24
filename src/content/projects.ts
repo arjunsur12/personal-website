@@ -26,7 +26,7 @@ export const projects: Project[] = [
     description:
       "A central-bank policy-forecasting platform that infers Federal Reserve and ECB policymaker beliefs from unstructured communications data, then predicts upcoming rate decisions. Decomposes each meeting into five economic dimensions (employment, growth, inflation, financial conditions, uncertainty) with an importance weight and expected direction per dimension, combines them with realized macro data through estimated reaction functions, and forecasts the rate change (bps) and discrete action (hike/hold/cut).",
     highlights: [
-      "Team Project, repo private as private data was utilized.",
+      "Team Project, repo private as private data was utilized. Created as part of Bridgewater Associates Immersion: AI for Innovation Hackathon Program.",
       "Built a data pipeline ingesting and cleaning ~5,000 central-bank speeches and ~5,200 policy documents across the Fed and ECB into a Parquet feature backbone (20,000+ dimension-feature rows, 10,000+ macro/market control series, 416 policy decisions) with automated QC reporting.",
       "Implemented a sequential Bayesian belief-updating model (pgmpy) that processes speeches chronologically — each posterior becomes the next prior — blending transcript, prior, and macro evidence into a five-dimension belief state.",
       "Estimated Ridge + multinomial-logistic reaction functions per institution, benchmarking macro-only, belief-only, and combined feature sets to quantify the marginal signal of transcript-derived beliefs; backtested over 2012–2025 on ~2,300 monthly snapshots, reaching up to 95% hike/hold/cut classification accuracy and ~5–12 bps rate-change MAE in-sample.",
