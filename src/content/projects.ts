@@ -21,6 +21,35 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "FedCast",
+    title: "FedCast",
+    description:
+      "A central-bank policy-forecasting platform that infers Federal Reserve and ECB policymaker beliefs from unstructured communications data, then predicts upcoming rate decisions. Decomposes each meeting into five economic dimensions (employment, growth, inflation, financial conditions, uncertainty) with an importance weight and expected direction per dimension, combines them with realized macro data through estimated reaction functions, and forecasts the rate change (bps) and discrete action (hike/hold/cut).",
+    highlights: [
+      "Team Project, repo private as private data was utilized.",
+      "Built a data pipeline ingesting and cleaning ~5,000 central-bank speeches and ~5,200 policy documents across the Fed and ECB into a Parquet feature backbone (20,000+ dimension-feature rows, 10,000+ macro/market control series, 416 policy decisions) with automated QC reporting.",
+      "Implemented a sequential Bayesian belief-updating model (pgmpy) that processes speeches chronologically — each posterior becomes the next prior — blending transcript, prior, and macro evidence into a five-dimension belief state.",
+      "Estimated Ridge + multinomial-logistic reaction functions per institution, benchmarking macro-only, belief-only, and combined feature sets to quantify the marginal signal of transcript-derived beliefs; backtested over 2012–2025 on ~2,300 monthly snapshots, reaching up to 95% hike/hold/cut classification accuracy and ~5–12 bps rate-change MAE in-sample.",
+      "Orchestrated multi-step reasoning with LangGraph/LangChain and live context retrieval via the Perplexity API, surfacing evidence traces, historical analogs, and skeptic flags for interpretability.",
+      "Shipped a Dockerized FastAPI service with synchronous and async job-based forecast endpoints, progress polling, and on-disk forecast caching, plus an interactive JS dashboard featuring belief-history timelines and a rotatable 3D policy-dimension view.",
+    ],
+    tags: ["Python", "pandas", "scikit-learn", "pgmpy", "LangChain/LangGraph", "Anthropic API", "Perplexity API", "FastAPI", "Docker", "PyArrow/Parquet", "JavaScript", "HTML", "CSS"],
+    images: [
+      {
+        src: "/projects/fedcast/fedcast_1.png",
+        alt: "FedCast Forecast Dashboard",
+        caption: "Forecast Dashboard - five-dimension belief state, rate-change prediction, and hike/hold/cut action with confidence",
+      },
+      {
+        src: "/projects/fedcast/fedcast_2.png",
+        alt: "FedCast Network Visualization",
+        caption: "Bayesian Network Visualization - 3D view of the five economic dimensions with importance weights and expected directions, plus evidence trace for interpretability",
+      },
+    ],
+    links: {
+    },
+  },
+  {
     slug: "Vanstagram",
     title: "Vanstagram",
     description:
