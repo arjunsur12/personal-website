@@ -4,7 +4,7 @@ import { projects } from "@/content/projects";
 import ProjectCard from "@/components/ProjectCard";
 
 export default function HomePage() {
-  const featured = projects.slice(0, 2);
+  const featured = [projects[0],projects[3]];
 
   return (
     <>
@@ -35,9 +35,11 @@ export default function HomePage() {
       </section>
 
       <section style={{ marginTop: 0 }}>
-        <h2>Featured</h2>
-        <div style={{ display: "grid", gap: 14, marginTop: 6 }}>
-          <ProjectCard key={featured[0].slug} p={featured[0]}/>
+        <h2 style={{ textAlign: "center" }}>Featured Projects!</h2>
+        <div className="projGrid">
+          {featured.map((p) => (
+            <ProjectCard key={p.slug} p={p} />
+          ))}
         </div>
 
         <div className="btnRow" style={{ marginTop: 14 }}>

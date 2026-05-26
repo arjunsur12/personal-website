@@ -149,6 +149,25 @@ a:hover { text-decoration: underline; }
   letter-spacing: -0.2px;
 }
 
+/* Projects grid: 2 cards per row, centered.
+   Breaks out of the 980px .container so each card is wide enough to keep
+   text on the left and images on the right. */
+.projGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 14px;
+}
+
+@media (min-width: 900px) {
+  .projGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(1400px, 94vw);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 /* Projects: 2-column card (text left, images right) */
 .projCard {
   border: 1px solid var(--border);
@@ -162,7 +181,7 @@ a:hover { text-decoration: underline; }
   gap: 14px;
 }
 
-@media (min-width: 820px) {
+@media (min-width: 900px) {
   .projCard {
     grid-template-columns: 1fr 1fr; /* left text, right images */
     align-items: stretch;
