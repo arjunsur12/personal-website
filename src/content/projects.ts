@@ -50,6 +50,44 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "PennOS",
+    title: "PennOS",
+    description:
+      "A UNIX-like operating system simulator that runs as a single host-OS process, implementing a priority scheduler, a FAT-based filesystem, and an interactive job-control shell. Built in C with strict kernel/filesystem/user-land abstraction boundaries mirroring real UNIX system-call semantics.",
+    highlights: [
+      "Repo private as part of course policy.",
+      "2 person project for CIS 5480 (Operating Systems Design & Implementation). ~8,700 lines of C across 40+ source/header files.",
+      "Built a multi-level round robin priority scheduler with three FIFO queue levels, and falls through to non-empty queues to prevent starvation.",
+      "Implemented full process lifecycle: PCBs with parent/child trees, s_spawn / s_waitpid (with nohang) / s_kill / s_nice / s_exit, init-process orphan reparenting, zombie reaping, and three signals (P_SIGSTOP, P_SIGCONT, P_SIGTERM).",
+      "Designed the PennFAT filesystem from scratch: mkfs/mount/unmount over a memory-mapped FAT, chain-based block allocation and freeing, 64-byte directory entries, and a full file API. A global open file table plus per-process file descriptor tables enforce single-writer semantics.",
+      "Wrote an interactive shell with job control (bg/fg/jobs), I/O redirection (<, >, >>), background execution (&), terminal signal handling, and shell-script execution.",
+    ],
+    tags: ["C", "pthreads", "Operating Systems", "Scheduling", "Filesystems", "FAT", "Signals", "Concurrency", "Make", "Docker", "clang", "Doxygen"],
+    images: [],
+    links: {
+    },
+  },
+  {
+    slug: "Wanderful",
+    title: "Wanderful",
+    description:
+      "A full-stack trip-planning web app that unifies the Yelp Open Dataset and Inside AirBnb data into a single Postgres-backed itinerary engine. A React (Vite) frontend talks to a Flask/psycopg2 API serving 13 hand-tuned SQL endpoints over 124K establishments and ~11M reviews, with query plans optimized via CTEs, window functions, covering indexes, and GiST spatial indexes.",
+    highlights: [
+      "Repo private as part of course policy.",
+      "4-person project for CIS 5500 (Databases). Combines ~150K Yelp businesses and Inside AirBnb listings into one schema: 124,112 establishments (49,857 restaurants, 74,255 AirBnBs) and 10,990,951 reviews on AWS RDS Postgres.",
+      "Designed a normalized schema with an establishments supertype and restaurants/airbnbs subtype tables, plus a unified reviews table, enforced with CHECK constraints, foreign keys, and cross-source ID hashing.",
+      "Built 7 small and 6 complex SQL endpoints behind a Flask API, using CTEs, ROW_NUMBER()/RANK() window functions, LATERAL aggregates, and EXISTS correlated subqueries for itinerary, weighted-ranking, and best-value queries.",
+      "Optimized the vote-weighted ranking query (CQ2) from 39,161ms to 204ms (192x) by replacing a JOIN + GROUP BY/HAVING that scanned all 10.9M reviews with a CTE + CROSS JOIN LATERAL aggregate over a covering index.",
+      "Implemented a Radius Itinerary Finder (CQ5) using a GiST 2D bounding-box pre-filter with a cos(lat) longitude correction, then exact haversine post-filtering — cutting ~1M distance calculations down to ~30 candidates per listing (546ms to 96ms, 5.7x).",
+      "Wrote Python ETL loaders to clean and ingest both datasets: filtering to US restaurants, correcting city misspellings, parsing JSON hours/categories into structured columns, and pg_trgm fuzzy-deduping city names for autocomplete.",
+      "Frontend in React + React Router with five pages (Home, Restaurants, AirBnBs, Itinerary, Detail), reusable cards/star-rating components, and a reviewer-profile modal; Vite dev proxy in dev, Flask serving the built bundle in prod.",
+    ],
+    tags: ["React", "Vite", "Flask", "Python", "PostgreSQL", "SQL", "psycopg2", "Query Optimization", "GiST Index", "Window Functions", "ETL", "AWS RDS", "Databases"],
+    images: [],
+    links: {
+    },
+  },
+  {
     slug: "Vanstagram",
     title: "Vanstagram",
     description:
