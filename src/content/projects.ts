@@ -83,7 +83,23 @@ export const projects: Project[] = [
       "Frontend in React + React Router with five pages (Home, Restaurants, AirBnBs, Itinerary, Detail), reusable cards/star-rating components, and a reviewer-profile modal; Vite dev proxy in dev, Flask serving the built bundle in prod.",
     ],
     tags: ["React", "Vite", "Flask", "Python", "PostgreSQL", "SQL", "psycopg2", "Query Optimization", "GiST Index", "Window Functions", "ETL", "AWS RDS", "Databases"],
-    images: [],
+    images: [
+      {
+        src: "/projects/wanderful/wanderful_1.jpeg",
+        alt: "Wanderful Home Page",
+        caption: "Home Page - Has search bar and best city results based on a weighted ranking of review count, average rating, and price level.",
+      },
+      {
+        src: "/projects/wanderful/wanderful_2.jpeg",
+        alt: "Wanderful Restaurant Search Page",
+        caption: "Restaurant Search Page - Has filters and sorting options.",
+      },
+      {
+        src: "/projects/wanderful/wanderful_3.jpeg",
+        alt: "Wanderful Itinerary Page",
+        caption: "Wanderful Itinerary page - Shows top 3 restaurants per airbnb with zipcode and geographic proximity based filters.",
+      }
+    ],
     links: {
     },
   },
