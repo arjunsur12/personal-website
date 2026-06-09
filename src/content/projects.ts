@@ -50,6 +50,38 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "Quasi-Static Vehicle Simulation",
+    title: "Quasi-Static Vehicle Simulation",
+    description:
+      "Quasi-Static Simulation for Penn Electric Racing: simulates a parameterized car and track to predicts lap times, energy use, and competition scores to systematically justify design decisions. Built in Python with Pydantic-validated subsystem models. My current contributions focus on the accumulator thermal simulation, the drivetrain efficiency model, and a CFD-backed aerodynamic map.",
+    highlights: [
+      "Codebase private by team policy.",
+      "Built a three-node transient cell thermal model (cell body, tab assembly, in-pack air) with temperature- and SOC-dependent internal resistance, entropic heat, Joule heat at the tab interconnects, Stefan-Boltzmann radiation, natural/forced convection (CFM-to-h correlation), and ideal-gas air density — integrated by forward-Euler over the QSS endurance current trace.",
+      "Calibrated the thermal model against real Rev11 endurance telemetry via a coarse-to-fine 1-D sweep on the pack heat-rejection parameter, using energy-preserving RMS-vs-mean current resampling (RMS for heating, mean for SOC).",
+      "Implemented a motor efficiency model as a 2-D tensor-product polynomial LUT (least-squares fit over RPM x torque CFD/dyno data, normalized inputs, Horner-method evaluation with out-of-bounds distance penalty), and inverted the implicit DC-bus power constraint tau*omega/eta(rpm,tau) <= P_limit by per-RPM bisection into a precomputed power-limited-torque table for O(1) runtime lookup, with automatic rebuild on parameter changes.",
+      "Modeled the three-region motor torque curve (flat / field-weakening / cutoff), LUT-aware regenerative braking and coasting with RWD-vs-AWD motor-count conditioning, AWD 80 kW system power clipping, and added voltage derating to couple pack state into the available power limit.",
+      "Replaced constant Cl/Cd aero coefficients with a CFD-backed aerodynamic map: a separable pitch x roll multiplier model for downforce, drag, and center-of-pressure, with body pitch/roll derived per simulation step from heave-spring and roll-stiffness suspension physics. Added attitude-driven center-of-pressure migration (front/rear downforce split) and a logarithmic radius-downforce factor for low-speed corners; validated with a Shapley-value decomposition of each effect's contribution to competition points.",
+    ],
+    tags: ["Python", "NumPy", "SciPy", "Pydantic", "Vehicle Dynamics", "Thermal Modeling", "Numerical Methods", "Lookup Tables", "Bisection", "CFD Data", "Battery Modeling", "Aerodynamics", "Jupyter", "FSAE"],
+    images: [{
+              src: "/projects/qss/qss_acc.png",
+              alt: "QSS Accumulator Thermal Simulation",
+              caption: "Accumulator Thermal Simulation - Example fitting of model to REV11 telemetry and thermals.",
+             },
+             {
+              src: "/projects/qss/qss_eff.png",
+              alt: "QSS Motor Efficiency Model",
+              caption: "Motor Efficiency Model - Example 3D surface plot using the efficency model to determine optimal gear ratio and pack capacity given car parameters.",
+             },
+             {
+              src: "/projects/qss/qss_aero.png",
+              alt: "QSS Aerodynamic Model",
+              caption: "Aerodynamic Model - Shapley-value decomposition of each effect's contribution to competition points, thus determining relative sensitivities.",
+            }],
+    links: {
+    },
+  },
+  {
     slug: "PennOS",
     title: "PennOS",
     description:

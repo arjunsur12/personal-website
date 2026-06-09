@@ -4,7 +4,7 @@ import { projects } from "@/content/projects";
 import ProjectCard from "@/components/ProjectCard";
 
 export default function HomePage() {
-  const featured = [projects[0],projects[3]];
+  const featured = [projects[0],projects[1]];
 
   return (
     <>
